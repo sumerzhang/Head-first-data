@@ -133,12 +133,27 @@ SELECT id, mid, sex FROM input_base LIMIT 10;
 SELECT id, mid, sex FROM input_base WHERE sex='男' LIMIT 10;
 ```
 
+## 5.编码
+中文乱码问题
 
-
-
-
-
-
+### 1. 创建数据库代码
+```SQL
+CREATE DATABASE `test`
+CHARSET set `utf8`
+COLLATE `utf8_general_ci`;
+```
+### 2.创建表结构代码
+```SQL
+CREATE TABLE `input_user_DATABASE` (
+`id` bigint(30) NOT NULL AUTO_INCREMENT COMMENT `自增id`,
+`mid` bigint(30)  DEFAULT NULL COMMENT `用户id`,
+`age` int(10) DEFAULT NULL COMMENT `年龄`,
+`degree` varchar(50) DEFAULT NULL COMMENT `学位`,
+PRIMARY KEY （`id`),
+INDEX `age`,
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8
+```
+这样设置好后就不会乱码了。
 
 
 
